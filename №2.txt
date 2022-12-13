@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите радиус 1-ой окружности");
+        double r1 = scanner.nextDouble();
+        System.out.println("Введите координату x центра первой окружности");
+        double x1 = scanner.nextDouble();
+        System.out.println("Введите координату y центра первой окружности");
+        double y1 = scanner.nextDouble();
+        System.out.println("Введите радиус 2-ой окружности");
+        double r2 = scanner.nextDouble();
+        System.out.println("Введите координату x центра второй окружности");
+        double x2 = scanner.nextDouble();
+        System.out.println("Введите координату y центра второй окружности");
+        double y2 = scanner.nextDouble();
+        double s1 = Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2));
+        //расстояние между центрами
+        double s = s1 - r1 - r2; //расстояние между окружностями
+        System.out.println("Расстояние между окружностями: "+s);
+    }
+}

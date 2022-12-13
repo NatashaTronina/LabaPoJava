@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        double z;
+        Scanner in = new Scanner(System.in);
+        double i = 0;
+        while (i == 0) {
+            System.out.println("7.2 Введите x");
+            double x = in.nextDouble();
+            if ((x < -4 || x > 4) || (1+x)==0) {
+                System.out.println("Не удовляетворяет ОДЗ");
+            } else {
+                i++;
+                if (x<0){
+                    z = Math.cbrt(Math.abs(x));
+                    System.out.println("z = "+z);
+                }
+                if (x>=0 && x<1){
+                    z = -2*x + (x/(1+x));
+                    System.out.println("z = "+z);
+                }
+                if (x>=1){
+                    z = (Math.abs(3-x))/(1+x);
+                    System.out.println("z = "+z);
+                }
+            }
+        }
+    }
+}

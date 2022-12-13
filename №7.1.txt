@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        double g;
+        Scanner in = new Scanner(System.in);
+        double i = 0;
+        while (i == 0) {
+            System.out.println("7.1 Введите x");
+            double x = in.nextDouble();
+            if ((x<-4 || x>4) || ((1+Math.pow(x,2)==0))) {
+                System.out.println("Не удовляетворяет ОДЗ");
+            }
+            else {
+                i++;
+                if (x<=0) {
+                    g = (3+Math.sin(x))/(1+Math.pow(x,2));
+                    System.out.print("g="+g);
+                }
+                else {
+                    g = 2*Math.pow(x,2)*Math.pow(Math.cos(x),2);
+                    System.out.println("g= "+g);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+import static java.lang.Math.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("input x");
+        double x = sc.nextDouble();
+        if (x < -4) System.out.println(log10(abs(10*x)));
+        if (x < 2 & x > -4) System.out.println(log(abs(x - 2*x * x)));
+        if (x > 2) System.out.println(pow(cos(x),sin(x))/(pow(x,(2/5))));
+        if (x == -4 || x == 2) System.out.println(sqrt(2));
+    }
+}

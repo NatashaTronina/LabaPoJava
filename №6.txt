@@ -1,0 +1,59 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите x");
+        double x = scanner.nextDouble();
+        System.out.println("Введите y");
+        double y = scanner.nextDouble();
+
+        if ((figureOne(x,y) && !figureTwo(x,y) && !figureThree(x,y) && !figureFour(x,y) && !figureSix(x,y)) || figureFive(x,y)){
+            System.out.println("Точка попала в закрашенную область");
+        }
+        else {
+            System.out.println("Точка не попала");
+        }
+    }
+    public static double k(double x1, double y1, double x2, double y2) {
+        return (y1 - y2) / (x1 - x2);
+    }
+    public static double b(double x1, double y1, double x2, double y2) {
+        return y1 - x1 * k(x1, y1, x2, y2);
+    }
+    public static boolean figureOne(double x,double y){
+        if (Math.pow(x-0,2) + Math.pow(y-0,2)<=Math.pow(6,2) && y<=0){
+            return true;
+        }
+        return false;
+    }
+    public static boolean figureTwo(double x,double y){
+        if (y>= k(-1,0,3,-3) * x + b(-1,0,3,-3) && y>=k(4,0,3,-3) * x + b(4,0,3,-3) && y<=0){
+            return true;
+        }
+        return false;
+    }
+    public static boolean figureThree(double x,double y){
+        if (y>= k(-4,-3,-1,0) * x + b(-4,-3,-1,0) && x>=-4 && y<=0){
+            return true;
+        }
+        return false;
+    }
+    public static boolean figureFour(double x,double y){
+        if (Math.pow(x-2,2) + Math.pow(y+4,2)<=Math.pow(1,2)){
+            return true;
+        }
+        return false;
+    }
+    public static boolean figureFive(double x,double y){
+        if (Math.pow(x+1,2) + Math.pow(y+2,2)<=Math.pow(1,2)){
+            return true;
+        }
+        return false;
+    }
+    public static boolean figureSix(double x,double y){
+        if (Math.pow(x+1,2) + Math.pow(y+3,2)<=Math.pow(2,2)){
+            return true;
+        }
+        return false;
+    }
+}

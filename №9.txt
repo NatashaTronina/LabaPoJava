@@ -1,0 +1,54 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Вам нравится обучаться в нашем ВУЗе?(да/нет/закончил)");
+        String s = scanner.next();
+        if (s.equals("да")) {
+            System.out.println("любимый предмет? (математика/информатика/физика)");
+            String s1 = scanner.next();
+            switch (s1) {
+                case "математика":
+                    System.out.println("Спасибо за ответ");
+                    break;
+                case "информатика":
+                    System.out.println("Спасибо за ответ");
+                    break;
+                case "физика":
+                    System.out.println("Спасибо за ответ");
+                    break;
+                default:
+                    System.out.println("нет такого варианта");
+            }
+        }
+        if (s.equals("нет")){
+            System.out.println("Почему?(скучно/сложно)");
+            String s2 = scanner.next();
+            switch (s2){
+                case "скучно":
+                    System.out.println("Спасибо за ответ,мы добавим что-то новое");
+                    break;
+                case "сложно":
+                    System.out.println("Спасибо за ответ, постараемся сделать учебную программу понятнее");
+                default:
+                    System.out.println("нет такого варианта");
+            }
+        }
+        if (s.equals("закончил")){
+            System.out.println("Оцените качество образование от 1 до 5");
+            String s3 = scanner.next();
+            switch (s3){
+                case "1","2":
+                    System.out.println("Сделаем всё возможное для улучшения качества образования");
+                    break;
+                case "3":
+                    System.out.println("Учтём ваше мнение");
+                    break;
+                case "4","5":
+                    System.out.println("Спасибо за ответ");
+                default:
+                    System.out.println("нет такого варианта");
+            }
+        }
+    }
+}
