@@ -1,54 +1,80 @@
 import java.util.Scanner;
 public class Main {
+    public static double s =Stepen();
+    public static double p =x();
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Вам нравится обучаться в нашем ВУЗе?(да/нет/закончил)");
-        String s = scanner.next();
-        if (s.equals("да")) {
-            System.out.println("любимый предмет? (математика/информатика/физика)");
-            String s1 = scanner.next();
-            switch (s1) {
-                case "математика":
-                    System.out.println("Спасибо за ответ");
-                    break;
-                case "информатика":
-                    System.out.println("Спасибо за ответ");
-                    break;
-                case "физика":
-                    System.out.println("Спасибо за ответ");
-                    break;
-                default:
-                    System.out.println("нет такого варианта");
+        double y0 = Y0();
+        double e1 = 0.01;double e2 = 0.001;double e3 = 0.0001;double e4 = 0.00001; double e5 = 0.000001;
+        iteration(y0,p,e1);
+        iteration(y0,p,e2);
+        iteration(y0,p,e3);
+        iteration(y0,p,e4);
+        iteration(y0,p,e5);
+    }
+    public static void iteration(double y0,double x,double pogresh){
+        boolean usl = false;
+        double y1 = 100;
+        double a = y0;
+        double t=0;
+        for(int n = 0;n!=10000;n++){
+            y1 =((1/s)*(((s-1)*a)+(x/(Math.pow(a,(s-1))))));
+            double r = (Math.abs(y1-a));
+            if (r<=pogresh){
+                System.out.println("Точность:" + " "+ Math.abs(y1-a) + " " +"Корень:" + " " + a + " "+ "Кол-во итераций:" + " "+ t);
+                break;
+            }
+            t++;
+            a = y1;
+        }
+    }
+    public static double Y0(){
+        double y=0;
+        double e = Math.exp((Math.log((p*(s+1))))/s);
+        Scanner in = new Scanner (System.in);
+        boolean h = false;
+        while (h!= true) {
+            System.out.println("Введите y0<"+e);
+            y = in.nextDouble();
+            if (y>=e) {
+                System.out.println("Вы ввели неправильное значение");
+                h = false;
+            } else {
+                h = true;
             }
         }
-        if (s.equals("нет")){
-            System.out.println("Почему?(скучно/сложно)");
-            String s2 = scanner.next();
-            switch (s2){
-                case "скучно":
-                    System.out.println("Спасибо за ответ,мы добавим что-то новое");
-                    break;
-                case "сложно":
-                    System.out.println("Спасибо за ответ, постараемся сделать учебную программу понятнее");
-                default:
-                    System.out.println("нет такого варианта");
+        return y;
+    }
+    public static double Stepen(){
+        double s=0;
+        Scanner in = new Scanner (System.in);
+        boolean h = false;
+        while (h!= true) {
+            System.out.println("Введите степень p не равную 0");
+            s = in.nextDouble();
+            if (s==0) {
+                System.out.println("Вы ввели неправильное значение");
+                h = false;
+            } else {
+                h = true;
             }
         }
-        if (s.equals("закончил")){
-            System.out.println("Оцените качество образование от 1 до 5");
-            String s3 = scanner.next();
-            switch (s3){
-                case "1","2":
-                    System.out.println("Сделаем всё возможное для улучшения качества образования");
-                    break;
-                case "3":
-                    System.out.println("Учтём ваше мнение");
-                    break;
-                case "4","5":
-                    System.out.println("Спасибо за ответ");
-                default:
-                    System.out.println("нет такого варианта");
+        return s;
+    }
+    public static double x(){
+        double p=0;
+        Scanner in = new Scanner (System.in);
+        boolean h = false;
+        while (h!= true) {
+            System.out.println("Введите подкоренное значение");
+            p = in.nextDouble();
+            if ((s%2==0)& p<0){
+                System.out.println("Подкоренное выражение не может быть <0");
+                h = false;
+            }
+            else {
+                h = true;
             }
         }
+        return p;
     }
 }

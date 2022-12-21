@@ -1,0 +1,10 @@
+public class Main {
+    public static void main(String[] args) {
+        for (double i = 1;i<=9;i++){
+            for(double j = 1;j<=9;j++){
+                System.out.print(j + " / " + i + " = " + String.format("%.3f",j/i)+" \t");
+            }
+            System.out.println();
+        }
+    }
+}

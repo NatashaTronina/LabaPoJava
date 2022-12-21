@@ -1,0 +1,40 @@
+import java.util.Scanner;
+public class Main {
+    public static double f(double x){
+        double f = Math.log(Math.abs(2*x + Math.pow(x,2)))+Math.sin(Math.cos(x));
+        return f;
+    }
+    public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        int b = 2;
+        int a = 1;
+        double n1 = 10; double n2 = 100; double n3 = 1000; double n4 = 10000;
+        double s1 = 0; double s2 = 0; double s3 = 0; double s4 = 0;
+        double h1 = (b-a)/n1; double h2 = (b-a)/n2; double h3 = (b-a)/n3; double h4 = (b-a)/n4;
+        double an1 = 1.62428; double an2 = 1.62428; double an3 = 1.62428; double an4 = 1.62428;
+        double x = 1.0;
+        for (int i = 1 ; i<(n1+1);i++){
+            x = x + h1;
+            s1 = s1 + f(x)*h1;
+        }
+        System.out.println("n="+n1 + " " + "h="+h1 + " " + "S="+s1 + " " + "Аналитическое решение="+an1 + " " + "Погрешность="+Math.abs(an1 - s1));
+        x = 1.0;
+        for (int i = 1 ; i<(n2+1);i++){
+            x = x + h2;
+            s2 = s2 + f(x)*h2;
+        }
+        System.out.println("n="+n2 + " " + "h="+h2 + " " + "S="+s2 + " " + "Аналитическое решение="+an2 + " " + "Погрешность="+Math.abs(an2 - s2));
+        x = 1.0;
+        for (int i = 1 ; i<(n3+1);i++){
+            x = x + h3;
+            s3 = s3 + f(x)*h3;
+        }
+        System.out.println("n="+n3 + " " + "h="+h3 + " " + "S="+s3 + " " + "Аналитическое решение="+an3 + " " + "Погрешность="+Math.abs(an3 - s3));
+        x = 1.0;
+        for (int i = 1 ; i<(n4+1);i++){
+            x = x + h4;
+            s4 = s4 + f(x)*h4;
+        }
+        System.out.println("n="+n4 + " " + "h="+h4 + " " + "S="+s4 + " " + "Аналитическое решение="+an4 + " " + "Погрешность="+Math.abs(an4 - s4));
+    }
+}

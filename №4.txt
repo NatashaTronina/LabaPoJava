@@ -1,14 +1,38 @@
-import static java.lang.Math.*;
-import java.util.Scanner;
-
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("input x");
-        double x = sc.nextDouble();
-        if (x < -4) System.out.println(log10(abs(10*x)));
-        if (x < 2 & x > -4) System.out.println(log(abs(x - 2*x * x)));
-        if (x > 2) System.out.println(pow(cos(x),sin(x))/(pow(x,(2/5))));
-        if (x == -4 || x == 2) System.out.println(sqrt(2));
+        Scanner scanner = new Scanner(System.in);
+        String a = "";
+        String ost;
+        Integer n =0;
+        int n1 =0;
+        int k = 0;
+        int i = 0;
+        int length = 0;
+        while (i == 0) {
+            System.out.println("Введите целое десятичное число");
+            n = scanner.nextInt();
+            System.out.println("Введите основание СС");
+            k = scanner.nextInt();
+            if (k > 1) {i++;}
+        }
+        while (n>0){
+            ost = String.valueOf(n%k);
+            switch (ost){
+                case "10": ost = "A";break; case "11": ost = "B";break; case "12": ost = "C";break;
+                case "13": ost = "D";break; case "14": ost = "E";break; case "15": ost = "F";break;
+                case "16": ost = "G";break; case "17": ost = "H";break; case "18": ost = "I";break;
+                case "19": ost = "J";break; case "20": ost = "K";break; case "21": ost = "L";break;
+                case "22": ost = "M";break; case "23": ost = "N";break; case "24": ost = "O";break;
+                case "25": ost = "P";break; case "26": ost = "Q";break; case "27": ost = "R";break;
+                case "28": ost = "S";break; case "29": ost = "T";break; case "30": ost = "U";break;
+                case "31": ost = "V";break; case "32": ost = "W";break; case "33": ost = "X";break;
+                case "34": ost = "Y";break; case "35": ost = "Z";break;
+            }
+            a = a + ost;
+            n = n/k;
+        }
+        StringBuilder sb = new StringBuilder(a);
+        System.out.println(sb.reverse());
     }
 }
